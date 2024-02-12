@@ -11,14 +11,18 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "users")
-public class User {
+@Table(name = "orders")
+public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
-    private String surname;
-    private boolean gender;
-    private String phoneNumber;
-    private String email;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+    private String street;
+    private String city;
+    private String state;
+    private String postalCode;
+    private String country;
+    private Long total;
 }
