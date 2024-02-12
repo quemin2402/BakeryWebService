@@ -15,7 +15,7 @@ import lombok.Setter;
 public class Pastry {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
     private String name;
     private String description;
     private Long price;
