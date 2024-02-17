@@ -15,29 +15,29 @@ public class UserController {
         this.userService = userService;
     }
     @GetMapping
-    public List<User> getAllUsers(){
+    public List<User> getAllUsers() {
         return userService.findAllUsers();
     }
     @GetMapping("/{id}")
-    public ResponseEntity<User> getUserById(int id) {
+    public ResponseEntity<User> getUserById(@PathVariable int id) {
         User user = userService.findById(id)
-                .orElseThrow(() -> new RuntimeException("user not found with id " + id));
+                .orElseThrow(() -> new RuntimeException("User not found with id " + id));
         return ResponseEntity.ok().body(user);
     }
 
     @PostMapping
-    public User createUser(User user) {
+    public User createUser(@RequestBody User user) {
         return userService.saveUser(user);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<User> updateUser(int id, User user) {
+    public ResponseEntity<User> updateUser(@PathVariable int id, @RequestBody User user) {
         User updatedUser = userService.updateById(id, user);
         return ResponseEntity.ok(updatedUser);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteUser(int id) {
+    public ResponseEntity<Void> deleteUser(@PathVariable int id) {
         userService.deleteById(id);
         return ResponseEntity.noContent().build();
     }

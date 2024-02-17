@@ -17,8 +17,8 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    private String surname;
-    private boolean gender;
+    private int age;
+    private String gender;
     private String phoneNumber;
     private String email;
 }

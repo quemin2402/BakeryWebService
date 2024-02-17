@@ -25,7 +25,7 @@ CREATE TABLE Orders (
     total BIGINT
 );
 
-CREATE TABLE OrderPastry (
+CREATE TABLE Pastry_Orders (
      order_id INT REFERENCES Orders(id) ON DELETE CASCADE,
      pastry_id INT REFERENCES Pastry(id) ON DELETE CASCADE,
      PRIMARY KEY (order_id, pastry_id)

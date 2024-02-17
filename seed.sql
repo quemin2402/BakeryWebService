@@ -45,7 +45,7 @@ VALUES
         3, '789 Oak St', 'Sometown', 'Somestate',
         '67890', 'CountryC', 450
     );
-INSERT INTO OrderPastry (order_id, pastry_id)
+INSERT INTO Pastry_Orders (order_id, pastry_id)
 VALUES
     (1, 1),
     (1, 2),

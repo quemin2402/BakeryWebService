@@ -1,10 +1,13 @@
 package kz.aitu.bakerywebservice.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.Set;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -25,4 +28,8 @@ public class Order {
     private String postalCode;
     private String country;
     private Long total;
+    @ManyToMany(mappedBy = "orders")
+   // @JsonIgnore
+    private Set<Pastry> pastry;
+
 }
