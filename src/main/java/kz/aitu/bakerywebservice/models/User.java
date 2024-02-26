@@ -1,11 +1,10 @@
 package kz.aitu.bakerywebservice.models;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.validation.constraints.*;
+import lombok.*;
 
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -16,9 +15,23 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @NotNull
+    @Size(min = 2, max = 30)
+    @Pattern(regexp = "^[a-zA-Z ]*$")
     private String name;
+    @NotNull
+    @Positive
+    @Digits(integer = 3, fraction = 0)
     private int age;
-    private String gender;
+    @NotNull
+    private Gender gender;
+    @NotNull
+    @Pattern(regexp = "^(\\+7|8)7\\d{9}$")
     private String phoneNumber;
+    @NotNull
+    @Email
     private String email;
+    public enum Gender {
+        M, F
+    }
 }

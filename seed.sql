@@ -14,18 +14,18 @@ VALUES
         'Chris Johnson', 28, 'O', '555-555-5555',
         'chrisj@example.com'
     );
-INSERT INTO Pastry (name, description, price)
+INSERT INTO Pastry (name, category, description, price)
 VALUES
     (
-        'Croissant', 'Flaky buttery pastry',
+        'Croissant', 'French', 'Flaky buttery pastry',
         250
     ),
     (
-        'Danish', 'Sweet pastry with fruit filling',
+        'Danish', 'French', 'Sweet pastry with fruit filling',
         300
     ),
     (
-        'Muffin', 'Soft pastry with blueberries',
+        'Muffin', 'French', 'Soft pastry with blueberries',
         200
     );
 INSERT INTO Orders (

@@ -1,7 +1,6 @@
 package kz.aitu.bakerywebservice.services.interfaces;
 
 import kz.aitu.bakerywebservice.models.Pastry;
-import kz.aitu.bakerywebservice.models.User;
 
 import java.util.List;
 import java.util.Optional;

@@ -1,12 +1,18 @@
 package kz.aitu.bakerywebservice.controllers;
 
+import jakarta.validation.Valid;
 import kz.aitu.bakerywebservice.models.Order;
 import kz.aitu.bakerywebservice.services.OrderService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
-
+import java.util.Map;
+@Validated
 @RestController
 @RequestMapping("/orders")
 public class OrderController {
@@ -28,7 +34,7 @@ public class OrderController {
     }
 
     @PostMapping
-    public Order createOrder(@RequestBody Order order) {
+    public Order createOrder(@Valid @RequestBody Order order) {
         return orderService.saveOrder(order);
     }
 
@@ -36,5 +42,14 @@ public class OrderController {
     public ResponseEntity<Void> deleteOrder(@PathVariable int id) {
         orderService.deleteById(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<Map<String, String>> handleValidationException(MethodArgumentNotValidException ex) {
+        Map<String, String> errorMap = new HashMap<>();
+        ex.getBindingResult().getFieldErrors().forEach(error -> {
+            errorMap.put(error.getField(), error.getDefaultMessage());
+        });
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorMap);
     }
 }
