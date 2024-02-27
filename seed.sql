@@ -1,54 +1,85 @@
-INSERT INTO Users (
-    name, age, gender, phone_number, email
-)
+INSERT INTO Users (name, age, gender, phone_number, email)
 VALUES
     (
-        'John Doe', 30, 'M', '123-456-7890',
-        'johndoe@example.com'
+        'Ben Black', 30, 0, '87787753796',
+        'blackben@mail.ru'
     ),
     (
-        'Jane Smith', 25, 'F', '098-765-4321',
-        'janesmith@example.com'
+        'Jane Smith', 25, 1, '87793625583',
+        'janesmith@gmail.com'
     ),
     (
-        'Chris Johnson', 28, 'O', '555-555-5555',
-        'chrisj@example.com'
+        'Alice Johnson', 28, 1, '87123456789',
+        'alicejohnson@yahoo.com'
+    ),
+    (
+        'Bob Anderson', 35, 0, '87234567890',
+        'bobanderson@hotmail.com'
+    ),
+    (
+        'Eva Brown', 22, 1, '87987654321',
+        'evabrown@gmail.com'
+    ),
+    (
+        'Michael White', 32, 0, '87876543210',
+        'michaelwhite@mail.com'
     );
 INSERT INTO Pastry (name, category, description, price)
 VALUES
     (
-        'Croissant', 'French', 'Flaky buttery pastry',
+        'Croissant', 'PuffPastry', 'Flaky buttery pastry',
         250
     ),
     (
-        'Danish', 'French', 'Sweet pastry with fruit filling',
+        'Danish', 'SweetPastry', 'Sweet pastry with fruit filling',
         300
     ),
     (
-        'Muffin', 'French', 'Soft pastry with blueberries',
+        'Muffin', 'SweetPastry', 'Soft pastry with blueberries',
         200
-    );
-INSERT INTO Orders (
-    user_id, street, city, state, postal_code,
-    country, total
-)
-VALUES
-    (
-        1, '123 Main St', 'Anytown', 'Anystate',
-        '12345', 'CountryA', 550
     ),
     (
-        2, '456 Elm St', 'Othertown', 'Otherstate',
-        '54321', 'CountryB', 600
+        'Cinnamon Roll', 'SweetPastry', 'Sweet and aromatic roll with cinnamon',
+        280
     ),
     (
-        3, '789 Oak St', 'Sometown', 'Somestate',
-        '67890', 'CountryC', 450
+        'Strudel', 'SeasonalPastry', 'Layered pastry with fruit and nut filling',
+        320
+    ),
+    (
+        'Scone', 'SourdoughPastry', 'British-style sweet or savory baked goods',
+        230
+    ),
+    (
+        'Pretzel', 'SaltyPastry', 'Twisted bread with a salty crust',
+        270
+    ),
+    (
+        'Pumpkin Pie', 'SeasonalPastry', 'Classic pie with pumpkin filling',
+        380
+    ),
+    (
+        'Chocolate Babka', 'SweetPastry', 'Sweet bread swirled with chocolate filling',
+        320
     );
-INSERT INTO Pastry_Orders (order_id, pastry_id)
+INSERT INTO Orders (user_id, street, city, state, postal_code, country, total)
 VALUES
-    (1, 1),
+    (
+        1, 'Mangilik El 53a', 'Astana', 'Akmola Region',
+        '010000', 'Kazakhstan', 550
+    ),
+    (
+        4, 'Uly Dala 25', 'Astana', 'Akmola Region',
+        '010000', 'Kazakhstan', 600
+    ),
+    (
+        2, 'Tauelsizdik 18b', 'Astana', 'Akmola Region',
+        '010000', 'Kazakhstan', 450
+    );
+INSERT INTO pastry_orders(orders_id, pastry_id)
+VALUES
     (1, 2),
-    (2, 3),
-    (3, 1),
-    (3, 3);
+    (1, 3),
+    (3, 6),
+    (3, 9),
+    (2, 5);
